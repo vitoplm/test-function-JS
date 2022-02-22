@@ -24,9 +24,9 @@ console.log(f());
 */
 //--------------------METHODS--------------------//
 
-let prop1 = 'Stocazzo';
-
 let A = {
+  name: 'Oggetto A',
+
   classic() {
     console.log('%c sono entrato nella CLASSIC function', 'color: #bada55');
     console.log(this);
@@ -44,8 +44,29 @@ let A = {
       console.log('Non hai passato una callback valida');
     }
   },
+
+  callerArrow() {
+    let localProp = 'Ciao Mondo';
+    let af = () => {
+      console.log(this);
+      console.log(localProp);
+    };
+    this.call(af);
+  },
+
+  callerClassic() {
+    let localProp = 'Ciao Mondo';
+    function ac() {
+      console.log(this);
+      console.log(localProp);
+    }
+    this.call(ac);
+  },
 };
 
-A.call(A.classic);
+// A.call(A.classic);
 
-A.call(A.arrow);
+// A.call(A.arrow);
+
+A.callerClassic();
+A.callerArrow();
