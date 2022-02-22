@@ -61,7 +61,7 @@ let A = {
       console.log(`%c ${localProp}`, 'color: #bada55');
     }
     this.call(ac);
-  },
+  }
 };
 
 // A.call(A.classic);
