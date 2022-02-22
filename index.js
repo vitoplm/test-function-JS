@@ -46,26 +46,25 @@ let A = {
   },
 
   callerArrow() {
-    let localProp = 'Ciao Mondo';
+    let localProp = 'ARROW';
     let af = () => {
       console.log(this);
-      console.log(localProp);
+      console.log(`%c ${localProp}`, 'color: #ff9643');
     };
     this.call(af);
   },
 
   callerClassic() {
-    let localProp = 'Ciao Mondo';
+    let localProp = 'CLASSIC';
     function ac() {
       console.log(this);
-      console.log(localProp);
+      console.log(`%c ${localProp}`, 'color: #bada55');
     }
     this.call(ac);
   },
 };
 
 // A.call(A.classic);
-
 // A.call(A.arrow);
 
 A.callerClassic();
